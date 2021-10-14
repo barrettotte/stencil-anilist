@@ -1,3 +1,3 @@
-# stencil-gcode
+# stencil-anilist
 
-A Stencil.js component to convert SVG to GCODE for CNC processing on laser engravers, pen plotters, etc.
+Simple web component to display a public Anilist profile 
