@@ -6,56 +6,40 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
+    interface AnilistUser {
+        "hideAnime": boolean;
+        "hideManga": boolean;
+        "useDarkMode": boolean;
+        "username": string;
     }
 }
 declare global {
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
+    interface HTMLAnilistUserElement extends Components.AnilistUser, HTMLStencilElement {
     }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
+    var HTMLAnilistUserElement: {
+        prototype: HTMLAnilistUserElement;
+        new (): HTMLAnilistUserElement;
     };
     interface HTMLElementTagNameMap {
-        "my-component": HTMLMyComponentElement;
+        "anilist-user": HTMLAnilistUserElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
+    interface AnilistUser {
+        "hideAnime"?: boolean;
+        "hideManga"?: boolean;
+        "useDarkMode"?: boolean;
+        "username"?: string;
     }
     interface IntrinsicElements {
-        "my-component": MyComponent;
+        "anilist-user": AnilistUser;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "anilist-user": LocalJSX.AnilistUser & JSXBase.HTMLAttributes<HTMLAnilistUserElement>;
         }
     }
 }

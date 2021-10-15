@@ -1,0 +1,25 @@
+# query for public user's stats
+
+query($username:String!){
+  User(search: $username){
+    id
+    name
+    statistics{
+      anime{
+        count
+        meanScore
+        episodesWatched
+        minutesWatched
+      }
+      manga{
+        count
+        meanScore
+        chaptersRead
+        volumesRead
+      }
+    }
+    avatar{
+      large
+    }
+  }
+}

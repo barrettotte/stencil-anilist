@@ -1,0 +1,10 @@
+@anilist=https://graphql.anilist.co
+
+### test basic user request
+POST {{anilist}}
+Accept: application/json
+Content-Type: application/json
+
+{
+    "query": "{User(search:\"barrettotte\"){id name statistics{anime{meanScore episodesWatched minutesWatched}}}}"
+}
