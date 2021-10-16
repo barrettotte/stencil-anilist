@@ -1,6 +1,7 @@
 export interface User {
   username: string;
   id: number;
+  avatar?: string;
   anime?: AnimeStats;
   manga?: MangaStats;
 };
@@ -10,12 +11,12 @@ interface MediaStats {
   meanScore: number;
 };
 
-interface AnimeStats extends MediaStats{
+export interface AnimeStats extends MediaStats{
   episodesWatched: number;
   minutesWatched: number;
 };
 
-interface MangaStats extends MediaStats{
+export interface MangaStats extends MediaStats{
   chaptersRead: number;
   volumesRead: number;
 };

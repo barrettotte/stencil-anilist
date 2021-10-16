@@ -1,46 +1,27 @@
-import { User } from "../model/anilistModels";
-
-const userGql = `query($username:String!){
-  User(search: $username){
-    id
-    name
-    statistics{
-      anime{
-        count
-        meanScore
-        episodesWatched
-        minutesWatched
-      }
-      manga{
-        count
-        meanScore
-        chaptersRead
-        volumesRead
-      }
-    }
-    avatar{
-      large
-    }
-  }
-}`;//.replace(/\n/g, ' ');
+import { AnimeStats, MangaStats, User } from "../model/anilistModels";
+import { ANILIST_API } from "../global/global";
+import { USER_GQL } from "../global/gql";
 
 // query for Anilist user and map to model
 export async function getUser(username: string): Promise<User> {
-  const data = await gqlRequest(userGql, {username});
-  if(data === null) {
+  const resp = await gqlRequest(USER_GQL, {username});
+  if(resp === null) {
     return null;
   }
-  console.log(data);
-
-  const user = {} as User;
-
-  return user;
+  const userData = resp['data']['User'];
+  return {
+    username: userData['name'],
+    id: userData['id'],
+    avatar: userData['avatar']['large'],
+    anime: {...userData['statistics']['anime']} as AnimeStats,
+    manga: {...userData['statistics']['manga']} as MangaStats,
+  } as User;
 }
 
-// Request Anilist using GraphQL and variables
+// send request to Anilist API using GraphQL query and variables
 async function gqlRequest(query: string, variables: object) {
   try{
-    const resp = await fetch('https://graphql.anilist.co', {
+    const resp = await fetch(ANILIST_API, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

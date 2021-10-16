@@ -5,8 +5,10 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { User } from "./model/anilistModels";
 export namespace Components {
     interface AnilistUser {
+        "fetchUser": (username: string) => Promise<User>;
         "hideAnime": boolean;
         "hideManga": boolean;
         "useDarkMode": boolean;
