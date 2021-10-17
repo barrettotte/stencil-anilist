@@ -1,4 +1,5 @@
 @anilist=https://graphql.anilist.co
+@mocked=http://127.0.0.1:3000
 
 ### test basic user request
 POST {{anilist}}
@@ -7,4 +8,13 @@ Content-Type: application/json
 
 {
     "query": "{User(search:\"barrettotte\"){id name statistics{anime{meanScore episodesWatched minutesWatched}}}}"
+}
+
+### test mock server user request
+POST {{mocked}}
+Accept: application/json
+Content-Type: application/json
+
+{
+    "query": "mocked"
 }

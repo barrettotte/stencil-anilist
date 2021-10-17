@@ -1,0 +1,25 @@
+{
+  "data": {
+    "User": {
+      "avatar": {
+        "large": "https://s4.anilist.co/file/anilistcdn/user/avatar/large/b247578-D2JdSxyvLBS4.jpg"
+      },
+      "id": 247578,
+      "name": "barrettotte",
+      "statistics": {
+        "anime": {
+          "count": 560,
+          "episodesWatched": 7360,
+          "meanScore": 68.77,
+          "minutesWatched": 179722
+        },
+        "manga": {
+          "chaptersRead": 0,
+          "count": 6,
+          "meanScore": 75,
+          "volumesRead": 15
+        }
+      }
+    }
+  }
+}

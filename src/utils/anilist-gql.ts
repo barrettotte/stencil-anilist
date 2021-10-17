@@ -1,5 +1,5 @@
 import { AnimeStats, MangaStats, User } from "../model/anilistModels";
-import { ANILIST_API } from "../global/global";
+import { ANILIST_API } from "../global/resources";
 import { USER_GQL } from "../global/gql";
 
 // query for Anilist user and map to model
