@@ -6,67 +6,89 @@
   box-sizing: border-box;
 }
 
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: center;
+}
+
 .anilist-container {
-  display: grid;
-  grid-column-gap: 40px;
-  grid-template-columns: 0.5fr 1fr;
-
-
+  padding: 10px;
+  max-width: 425px;
   background: rgb(var(--color-foreground));
   color: rgb(var(--color-text-light));
   border-radius: 4px;
-  margin: 25px;
 }
 
-.content-wrapper {
+.anilist-item {
+  margin: 10px;
+  padding: 10px;
   background: rgb(var(--color-background-blue-dark));
   border-radius: 4px;
-  margin: 30px;
-  padding: 10px 5px;
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  li {
+    padding-top: 4px;
+  }
 }
 
 .user-container {
-  figure {
-    margin: 1rem;
-    text-align: center;
-  }
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  justify-content: stretch;
+  
   img {
     border-radius: 50%;
-    margin-bottom: 0.75rem;
+    margin-bottom: 25px;
     max-width: 125px;
     height: auto;
   }
+  a {
+    color: rgb(var(--color-text-light));
+    text-decoration: none;
+    &:hover {
+      color: rgb(var(--color-orange));
+    }
+    img {
+      max-width: 20px;
+      padding-right: 8px;
+      float: left;
+    }
+  }
   figcaption {
     text-align: center;
-    font-size: 1.4rem;
-    a {
-      color: rgb(var(--color-text-light));
-      text-decoration: none;
-      &:hover {
-        color: rgb(var(--color-blue));
-      }
-    }
+    font-size: 1.1rem;
   }
 }
 
 .stats-container {
-  display: grid;
-
-  grid-column-gap: 30px;
-  grid-template-columns: 1fr 1fr;
-  justify-items: stretch;
-
-  .stat {
-    color: rgb(var(--color-blue));
-    padding-right: 6px;
-  }
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: stretch;
+  font-size: 0.70rem;
   
-  .anime-container, .manga-container {
-    display: grid;
-    grid-auto-flow: column;
-    grid-template-columns: auto;
-
-    background: rgb(var(--color-background-blue-dark));
-    border-radius: 4px;
+  .stat-label {
+    text-align: center;
+    padding: 0px 0px 6px 0px;
+    font-weight: bold;
+    text-decoration: underline;
+  }
+  li {
+    text-align: left;
+    span {
+      float: right;
+    }
+    .stat {
+      color: rgb(var(--color-orange));
+      padding-left: 12px;
+    }
   }
 }

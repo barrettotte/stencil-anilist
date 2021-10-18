@@ -10,3 +10,4 @@ const resources = {
 };
 
 export const ANILIST_API = resources[Env.apiEnv]['base'];
+export const ANILIST_LOGO = 'https://anilist.co/img/icons/icon.svg';

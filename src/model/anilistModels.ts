@@ -1,6 +1,7 @@
 export interface User {
   username: string;
   id: number;
+  createdAt: Date;
   avatar?: string;
   anime?: AnimeStats;
   manga?: MangaStats;

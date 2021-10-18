@@ -1,5 +1,5 @@
 import { Component, h, Method, Prop, State } from '@stencil/core';
-import { ANILIST_API } from '../../global/resources';
+import { ANILIST_API, ANILIST_LOGO } from '../../global/resources';
 import { User } from '../../model/anilistModels';
 import { getUser } from '../../utils/anilist-gql';
 
@@ -32,7 +32,12 @@ export class AnilistUser {
   }
 
   renderUserUrl() {
-    return (<a href={`${ANILIST_API}/user/${this.username}`}>{this.username}</a>);
+    return (
+      <a href={`${ANILIST_API}/user/${this.username}`}>
+        <img class="logo" src={ANILIST_LOGO} alt="Anilist logo"/>
+        {this.username}
+      </a>
+    );
   }
 
   renderGenericError() {
@@ -44,28 +49,34 @@ export class AnilistUser {
       return this.renderGenericError();
     }
     return (
-      <div class="anilist-container">
-        <div class="user-container content-wrapper">
-          <figure>
-            <img src={this.user.avatar} alt={`Avatar for user ${this.username}`}/>
-            <figcaption>{this.renderUserUrl()}</figcaption>
-          </figure>
+      <div class="anilist-container flex-container">
+        <div class="user-container flex-container">
+          <div class="anilist-item">
+            <figure>
+              <img src={this.user.avatar} alt={`Avatar for user ${this.username}`}/>
+              <figcaption>
+                <span>{this.renderUserUrl()}</span>
+              </figcaption>
+            </figure>
+          </div>
         </div>
-        <div class="stats-container">
-          <div class="anime-container content-wrapper">
+        <div class="stats-container flex-container">
+          <div class="anilist-item">
+            <div class="stat-label">Anime Stats</div>
             <ul>
-              <li><span class="stat">{this.user.anime.count}</span>anime entries</li>
-              <li><span class="stat">{this.user.anime.episodesWatched}</span>episodes watched</li>
-              <li><span class="stat">{this.user.anime.minutesWatched}</span>minutes watched</li>
-              <li><span class="stat">{this.user.anime.meanScore}</span>mean score</li>
+              <li>Mean Score<span class="stat">{this.user.anime.meanScore}</span></li>
+              <li>Entries<span class="stat">{this.user.anime.count}</span></li>
+              <li>Episodes Watched<span class="stat">{this.user.anime.episodesWatched}</span></li>
+              <li>Days Watched<span class="stat">{(this.user.anime.minutesWatched/60/24).toFixed(2)}</span></li>
             </ul>
           </div>
-          <div class="manga-container content-wrapper">
+          <div class="anilist-item">
+            <div class="stat-label">Manga Stats</div>
             <ul>
-              <li><span class="stat">{this.user.manga.count}</span>manga entries</li>
-              <li><span class="stat">{this.user.manga.chaptersRead}</span>chapters read</li>
-              <li><span class="stat">{this.user.manga.volumesRead}</span>volumes read</li>
-              <li><span class="stat">{this.user.manga.meanScore}</span>mean score</li>
+              <li>Mean Score<span class="stat">{this.user.manga.meanScore}</span></li>
+              <li>Entries<span class="stat">{this.user.manga.count}</span></li>
+              <li>Chapters Read<span class="stat">{this.user.manga.chaptersRead}</span></li>
+              <li>Volumes Read<span class="stat">{this.user.manga.volumesRead}</span></li>
             </ul>
           </div>
         </div>
