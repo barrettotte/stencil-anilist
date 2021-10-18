@@ -1,0 +1,1 @@
+import{p as e,b as a}from"./p-2f13af88.js";(()=>{const a=import.meta.url,r={};return""!==a&&(r.resourcesUrl=new URL(".",a).href),e(r)})().then((e=>a([["p-72c668ea",[[1,"anilist-user",{username:[1],useDarkMode:[4,"use-dark-mode"],hideAnime:[4,"hide-anime"],hideManga:[4,"hide-manga"],user:[32],fetchUser:[64]}]]]],e)));
